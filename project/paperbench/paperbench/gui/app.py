@@ -109,7 +109,7 @@ def delete_node() -> Response:
             # having deleted `node_id`. We have to generate a new `task_category` since this is
             # required for all leaf nodes.
             if len(old_parent.sub_tasks) == 1:
-                new_task_category = None
+                new_task_category = "Code Development"
 
                 if app.config["USE_API"]:
                     new_task_category = generate_task_category(old_parent)
@@ -181,7 +181,7 @@ def add_sub_task() -> Response:
             if args.graded:
                 new_sub_task = app.config["NODE_TYPE"](
                     id=random_id(),
-                    task_category=None,
+                    task_category="Code Development",
                     requirements=new_requirements,
                     weight=1,
                     score=0.0,
@@ -193,7 +193,7 @@ def add_sub_task() -> Response:
             else:
                 new_sub_task = app.config["NODE_TYPE"](
                     id=random_id(),
-                    task_category=None,
+                    task_category="Code Development",
                     requirements=new_requirements,
                     weight=1,
                     sub_tasks=[],
@@ -522,7 +522,7 @@ if __name__ == "__main__":
         if args.graded:
             empty_task = app.config["NODE_TYPE"](
                 id=random_id(),
-                task_category=None,
+                task_category="Code Development",
                 requirements="The core contributions of the paper have been reproduced.",
                 weight=1,
                 score=0.0,
@@ -534,7 +534,7 @@ if __name__ == "__main__":
         else:
             empty_task = app.config["NODE_TYPE"](
                 id=random_id(),
-                task_category=None,
+                task_category="Code Development",
                 requirements="The core contributions of the paper have been reproduced.",
                 weight=1,
                 sub_tasks=[],
